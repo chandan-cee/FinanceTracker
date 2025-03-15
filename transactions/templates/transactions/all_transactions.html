@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Transactions</title>
+</head>
+<body>
+    <h1>All Transactions</h1>
+
+    {% if transactions %}
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No transactions available.</p>
+    {% endif %}
+
+    <br>
+    <button onclick="location.href='{% url 'home' %}'">Back to Home</button>
+</body>
+</html>
