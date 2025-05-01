@@ -77,18 +77,3 @@ def exit_app(request):
 def all_transactions(request):
     transactions = Transaction.objects.all().order_by("-date")  # Fetch all transactions
     return render(request, "transactions/all_transactions.html", {"transactions": transactions})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

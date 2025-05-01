@@ -1,0 +1,5 @@
+ [build]
+  plan = "python"
+[variables]
+  PYTHON_VERSION = "3.10"  # Change this to match your version
+
