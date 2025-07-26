@@ -12,8 +12,15 @@ matplotlib.use("Agg")  # Use non-GUI backend
 
 
 # Home page with buttons
+# def home(request):
+#     return render(request, "transactions/home.html")
+
 def home(request):
-    return render(request, "transactions/home.html")
+    recent_transactions = Transaction.objects.all().order_by('-date')[:5]
+    return render(request, "transactions/home.html", {
+        "recent_transactions": recent_transactions
+    })
+
 
 # 1️⃣ Add Transaction Page
 def add_transaction(request):
